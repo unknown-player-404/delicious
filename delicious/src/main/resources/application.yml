@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/delicious_foods?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+jwt:
+  secret: deliciousFoodsSecretKey2024XxYyZz!!
+  expiration: 86400000
+
+file:
+  upload-path: C:\Users\86138\Desktop\code\delicious\src\uploads\
+
+logging:
+  file:
+    name: log
+  level:
+    root: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,loggers   # 暴露指定端点
+        # include: "*"   # 暴露所有端点（生产环境慎用）
+  endpoint:
+    health:
+      show-details: always   # 显示健康检查的详细信息
